@@ -1,7 +1,5 @@
 package com.collabera.chefProject.backend.chef;
 
-import javax.validation.constraints.NotBlank;
-
 public class ChefDto {
 	private long id;
 	private String firstName;
