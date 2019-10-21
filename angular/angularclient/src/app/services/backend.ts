@@ -2,6 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
+interface  {
+
+}
 
 @Injectable({
   providedIn: 'root' // will be provided for all
@@ -10,6 +13,7 @@ export class BackEndService {
   baseUrl: string;
   chefExt: string;
   userExt: string;
+  httpOptions;
 
   // chefsPresent: boolean;
   chefs;
@@ -17,6 +21,11 @@ export class BackEndService {
     this.baseUrl = "http://localhost:8080/api";
     this.chefExt = "/chefs";
     this.userExt = "/users";
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
   }
   requestChefs() {
     // retrieves all chefs in database
@@ -40,12 +49,22 @@ export class BackEndService {
   }
   requestNewChef(chef: ChefRequest) {
     // send post to db
+    this.http.post<ChefResponse>(this.baseUrl + this.chefExt,
+                                chef,
+                                this.httpOptions)
+    .subscribe( result => { this.requestChefs() });
   }
   requestChefChange(chef: ChefRequest) {
     // send put to db
+    this.http.put<ChefResponse>(this.baseUrl + this.chefExt,
+                                chef,
+                                this.httpOptions)
+    .subscribe( result => { this.requestChefs() });
   }
   requestChefRemove(id) {
     // send delete to db
+    this.http.delete(this.baseUrl + this.chefExt + id)
+    .subscribe( result => { this.requestChefs() });
   }
   getChefs() {
     // get all chefs cached
