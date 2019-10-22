@@ -12,7 +12,8 @@ interface BackEndMenu {
   // Access Cached Data
   getChefs(); // get all chefs cached
   getChef(id); // get particular chef
-  getBlankChef(id: number, firstName: string, lastName: string, address: string);
+  getBlankChef(id: number, firstName: string, lastName: string, address: string,
+                pictureUrl: string);
   // ^^^ container for change in the format to be submitted
 }
 
@@ -88,9 +89,10 @@ export class BackEndService implements BackEndMenu {
   getBlankChef(id: number,
   firstName: string,
   lastName: string,
-  address: string) {
+  address: string,
+  pictureUrl: string) {
     // container for change in the format to be submitted
-    return new ChefRequest(id, firstName, lastName, address);
+    return new ChefRequest(id, firstName, lastName, address, pictureUrl);
   }
 }
 
@@ -100,15 +102,21 @@ export class ChefRequest {
   firstName: string;
   lastName: string;
   address: string;
+  pictureUrl: string;
+  // age: number;
+  // description: string;
+  // price: number;
   constructor(
     id: number,
     firstName: string,
     lastName: string,
-    address: string) {
+    address: string,
+    pictureUrl: string) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.address = address;
+    this.pictureUrl = pictureUrl;
   }
 }
 export interface ChefResponse {
@@ -117,6 +125,7 @@ export interface ChefResponse {
   firstName: string;
   lastName: string;
   address: string;
+  pictureUrl: string;
 }
 export class UserRequest {
   // formatted data to send to database
