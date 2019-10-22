@@ -88,35 +88,60 @@ export class BackEndService {
   getBlankChef(id: number,
   firstName: string,
   lastName: string,
-  address: string) {
+  address: string,
+  pictureUrl:string,
+  age:number,
+  categories:string,
+  description:string,
+  price:number) {
     // container for change in the format to be submitted
-    return new ChefRequest(id, firstName, lastName, address);
+    return new ChefRequest(id, firstName, lastName, address ,pictureUrl,age,categories,description,price);
   }
 }
 
 export class ChefRequest {
   // formatted data to send to database
-  id: number;
-  firstName: string;
-  lastName: string;
-  address: string;
+  id:number;
+  firstName:string;
+  lastName:string;
+  address:string;
+  pictureUrl:string;
+  age:number;
+  categories:string;
+  description:string;
+  price:number;
   constructor(
     id: number,
     firstName: string,
     lastName: string,
-    address: string) {
+    address: string,
+    pictureUrl:string,
+    age:number,
+    categories:string,
+    description:string,
+    price:number) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.address = address;
+    this.pictureUrl = pictureUrl;
+    this.age = age;
+    this.categories = categories;
+    this.description = description;
+    this.price = price;
   }
 }
 export interface ChefResponse {
   // expected data from the database
-  id: number;
-  firstName: string;
-  lastName: string;
-  address: string;
+  id:number;
+  firstName:string;
+  lastName:string;
+  address:string;
+  pictureUrl:string;
+  age:number;
+  categories:string;
+  description:string;
+  price:number;
 }
 export class UserRequest {
   // formatted data to send to database
