@@ -13,16 +13,18 @@ public class UserDto {
 	private String email;
 	private String password;
 	private String matchingPassword;
+	private String pictureUrl;
 	
 	public UserDto() {}
 
-	public UserDto(long id, String firstName, String lastName, String address, String email, String password) {
+	public UserDto(long id, String firstName, String lastName, String address, String email, String password, String pictureUrl) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.email = email;
 		this.password = password;
+		this.pictureUrl = pictureUrl;
 	}
 
 	public long getId() {
@@ -58,7 +60,7 @@ public class UserDto {
 	}
 	
 	public User toEntity() {
-		return new User(id, firstName, lastName, address, email, password);
+		return new User(id, firstName, lastName, address, email, password, pictureUrl);
 	}
 
 	public String getPassword() {
@@ -83,5 +85,13 @@ public class UserDto {
 
 	public void setMatchingPassword(String matchingPassword) {
 		this.matchingPassword = matchingPassword;
+	}
+
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 }

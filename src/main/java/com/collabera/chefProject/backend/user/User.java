@@ -18,16 +18,18 @@ public class User {
 	private String email;
 	@NotBlank(message="User Needs Password")
 	private String password;
+	private String pictureUrl;
 	
 	public User() {}
 
-	public User(long id, String firstName, String lastName, String address, String email, String password) {
+	public User(long id, String firstName, String lastName, String address, String email, String password, String pictureUrl) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.email = email;
 		this.password = password;
+		this.pictureUrl = pictureUrl;
 	}
 
 	public long getId() {
@@ -63,7 +65,7 @@ public class User {
 	}
 	
 	public UserDto toDto() {
-		return new UserDto(id, firstName, lastName, address, email, password);
+		return new UserDto(id, firstName, lastName, address, email, password, pictureUrl);
 	}
 
 	public String getEmail() {
@@ -80,5 +82,13 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 }
