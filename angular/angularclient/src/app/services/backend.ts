@@ -2,8 +2,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-interface  {
-
+interface BackEndMenu {
+  // Update Cached Data
+  requestChefs(); // retrieves all chefs in database
+  requestChef(id); // changes chef in chefs when retrieved from the database
+  requestNewChef(chef: ChefRequest); // send post to db
+  requestChefChange(chef: ChefRequest); // send put to db
+  requestChefRemove(id); // send delete to db
+  // Access Cached Data
+  getChefs(); // get all chefs cached
+  getChef(id); // get particular chef
+  getBlankChef(id: number, firstName: string, lastName: string, address: string);
+  // ^^^ container for change in the format to be submitted
 }
 
 @Injectable({
@@ -26,6 +36,7 @@ export class BackEndService {
         'Content-Type':  'application/json'
       })
     };
+    this.chefs = []; // init load?
   }
   requestChefs() {
     // retrieves all chefs in database
