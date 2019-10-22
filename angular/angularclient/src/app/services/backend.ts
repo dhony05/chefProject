@@ -19,7 +19,7 @@ interface BackEndMenu {
 @Injectable({
   providedIn: 'root' // will be provided for all
 })
-export class BackEndService {
+export class BackEndService implements BackEndMenu {
   baseUrl: string;
   chefExt: string;
   userExt: string;
@@ -50,7 +50,7 @@ export class BackEndService {
   }
   requestChef(id) {
     // changes chef in chefs when retrieved from the database
-    this.http.get<ChefResponse>(this.baseUrl + this.chefExt + id)
+    this.http.get<ChefResponse>(this.baseUrl + this.chefExt + "/" + id)
     .subscribe( result => {
       let index = this.chefs.indexOf(this.chefs.filter(chef => {chef.id == result.id}));
       if (~index) { // notify needed
@@ -74,7 +74,7 @@ export class BackEndService {
   }
   requestChefRemove(id) {
     // send delete to db
-    this.http.delete(this.baseUrl + this.chefExt + id)
+    this.http.delete(this.baseUrl + this.chefExt + "/" + id)
     .subscribe( result => { this.requestChefs() });
   }
   getChefs() {
