@@ -13,7 +13,7 @@ interface BackEndMenu {
   getChefs(); // get all chefs cached
   getChef(id); // get particular chef
   getBlankChef(id: number, firstName: string, lastName: string, address: string,
-                pictureUrl: string);
+                pictureUrl: string , age:number, categories:string , description:string,price:number);
   // ^^^ container for change in the format to be submitted
 }
 
@@ -86,11 +86,11 @@ export class BackEndService implements BackEndMenu {
     // get particular chef
     return this.chefs.filter(chef => chef.id == id);
   }
+
   getBlankChef(id: number,
   firstName: string,
   lastName: string,
   address: string,
-<<<<<<< HEAD
   pictureUrl:string,
   age:number,
   categories:string,
@@ -98,17 +98,13 @@ export class BackEndService implements BackEndMenu {
   price:number) {
     // container for change in the format to be submitted
     return new ChefRequest(id, firstName, lastName, address ,pictureUrl,age,categories,description,price);
-=======
-  pictureUrl: string) {
-    // container for change in the format to be submitted
-    return new ChefRequest(id, firstName, lastName, address, pictureUrl);
->>>>>>> a9cf907ac044eb55d2be14fafb08cf7e586fbc2a
+
   }
 }
 
 export class ChefRequest {
   // formatted data to send to database
-<<<<<<< HEAD
+
   id:number;
   firstName:string;
   lastName:string;
@@ -118,47 +114,33 @@ export class ChefRequest {
   categories:string;
   description:string;
   price:number;
-=======
-  id: number;
-  firstName: string;
-  lastName: string;
-  address: string;
-  pictureUrl: string;
-  // age: number;
-  // description: string;
-  // price: number;
->>>>>>> a9cf907ac044eb55d2be14fafb08cf7e586fbc2a
+
   constructor(
     id: number,
     firstName: string,
     lastName: string,
     address: string,
-<<<<<<< HEAD
     pictureUrl:string,
     age:number,
     categories:string,
     description:string,
     price:number) {
-=======
-    pictureUrl: string) {
->>>>>>> a9cf907ac044eb55d2be14fafb08cf7e586fbc2a
+
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.address = address;
     this.pictureUrl = pictureUrl;
-<<<<<<< HEAD
     this.age = age;
     this.categories = categories;
     this.description = description;
     this.price = price;
-=======
->>>>>>> a9cf907ac044eb55d2be14fafb08cf7e586fbc2a
+
   }
 }
 export interface ChefResponse {
   // expected data from the database
-<<<<<<< HEAD
+
   id:number;
   firstName:string;
   lastName:string;
@@ -168,13 +150,7 @@ export interface ChefResponse {
   categories:string;
   description:string;
   price:number;
-=======
-  id: number;
-  firstName: string;
-  lastName: string;
-  address: string;
-  pictureUrl: string;
->>>>>>> a9cf907ac044eb55d2be14fafb08cf7e586fbc2a
+
 }
 export class UserRequest {
   // formatted data to send to database
