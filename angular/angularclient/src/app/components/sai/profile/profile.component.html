@@ -6,15 +6,14 @@
         <div class="row">
           <div class="col pic">
             <img src="https://img1.mashed.com/img/gallery/easy-dishes-that-make-you-seem-like-a-professional-chef/intro.jpg" height=250px width=250px /> <br>
+            <div *ngFor = "let chef of getData()">
+                {{chef.firstName}} {{chef.lastName}} <br>
+                {{chef.address}}
+
+            </div>
           </div>
         </div>
       </div>
-      
-      <!-- {{pet.name}}, <br>
-      {{pet.gender}}, <br>
-      {{pet.age}}, <br>
-      {{pet.ownerName}} <br> -->
-
     </div>
   </div>
 </div>

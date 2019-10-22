@@ -1,1 +1,13 @@
-<p>contacts works!</p>
+<div class="container">
+  <div class="row">
+    <div *ngFor=" let chef of getData()">
+      <div class="col-sm-2">
+        <img src="https://img1.mashed.com/img/gallery/easy-dishes-that-make-you-seem-like-a-professional-chef/intro.jpg" height=150px width=150px />
+      </div>
+      <div class="col-sm-8">
+        <label for="name">Name:</label>
+        {{chef.firstName}}
+      </div>
+    </div>
+  </div>
+</div>

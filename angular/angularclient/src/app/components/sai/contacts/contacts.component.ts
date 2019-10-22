@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackEndService } from '../../../services/backend';
 
 @Component({
   selector: 'app-contacts',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
 
-  constructor() { }
+    chefs;
+      constructor(private cache: BackEndService) {
+          this.cache.requestChefs(); // use to get fresh list on construstion
+      }
+      ngOnInit() {
+      }
 
-  ngOnInit() {
-  }
-
-}
+    getData(){
+        this.chefs = this.cache.getChef(1);
+        return this.chefs;
+    }
+    }

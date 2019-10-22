@@ -45,6 +45,7 @@ export class BackEndService implements BackEndMenu {
     this.http.get<ChefResponse[]>(this.baseUrl + this.chefExt)
     .subscribe( result => {
       // this.chefsPresent = true;
+
       this.chefs = result;
     });
   }
