@@ -1,8 +1,11 @@
 package com.collabera.chefProject.backend.user;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,29 +16,21 @@ public class UserService {
 	private UserRepository repository;
 	
 	
-//	@Transactional
-//    public User registerNewUserAccount(UserDto accountDto) 
-//      throws EmailExistsException {
-//         
-//        if (emailExists(accountDto.getEmail())) {   
-//            throw new EmailExistsException(
-//              "There is an account with that email address:"  + accountDto.getEmail());
-//        }
-//        User user = new User();    
-//        user.setFirstName(accountDto.getFirstName());
-//        user.setLastName(accountDto.getLastName());
-//        user.setPassword(accountDto.getPassword());
-//        user.setEmail(accountDto.getEmail());
+	@Transactional
+    public User registerNewUserAccount(UserDto accountDto) 
+      throws EmailExistsException {
+         
+        if (emailExists(accountDto.getEmail())) {   
+            throw new EmailExistsException(
+              "There is an account with that email address:"  + accountDto.getEmail());
+        }
+        User user = accountDto.toEntity();    
 //        user.setRoles(Arrays.asList("ROLE_USER"));
-//        return repository.save(user);       
-//    }
-//	private boolean emailExists(String email) {
-//        User user = repository.findByEmail(email);
-//        if (user != null) {
-//            return true;
-//        }
-//        return false;
-//    }
+        return repository.save(user);       
+    }
+	private boolean emailExists(String email) {
+        return repository.findByEmail(email).isPresent();   
+    }
 	
 	
 	

@@ -2,14 +2,24 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-interface  {
-
+interface BackEndMenu {
+  // Update Cached Data
+  requestChefs(); // retrieves all chefs in database
+  requestChef(id); // changes chef in chefs when retrieved from the database
+  requestNewChef(chef: ChefRequest); // send post to db
+  requestChefChange(chef: ChefRequest); // send put to db
+  requestChefRemove(id); // send delete to db
+  // Access Cached Data
+  getChefs(); // get all chefs cached
+  getChef(id); // get particular chef
+  getBlankChef(id: number, firstName: string, lastName: string, address: string);
+  // ^^^ container for change in the format to be submitted
 }
 
 @Injectable({
   providedIn: 'root' // will be provided for all
 })
-export class BackEndService {
+export class BackEndService implements BackEndMenu {
   baseUrl: string;
   chefExt: string;
   userExt: string;
@@ -26,6 +36,7 @@ export class BackEndService {
         'Content-Type':  'application/json'
       })
     };
+    this.chefs = []; // init load?
   }
   requestChefs() {
     // retrieves all chefs in database
@@ -39,7 +50,7 @@ export class BackEndService {
   }
   requestChef(id) {
     // changes chef in chefs when retrieved from the database
-    this.http.get<ChefResponse>(this.baseUrl + this.chefExt + id)
+    this.http.get<ChefResponse>(this.baseUrl + this.chefExt + "/" + id)
     .subscribe( result => {
       let index = this.chefs.indexOf(this.chefs.filter(chef => {chef.id == result.id}));
       if (~index) { // notify needed
@@ -63,7 +74,7 @@ export class BackEndService {
   }
   requestChefRemove(id) {
     // send delete to db
-    this.http.delete(this.baseUrl + this.chefExt + id)
+    this.http.delete(this.baseUrl + this.chefExt + "/" + id)
     .subscribe( result => { this.requestChefs() });
   }
   getChefs() {
