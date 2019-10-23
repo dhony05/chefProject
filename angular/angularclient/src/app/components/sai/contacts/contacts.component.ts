@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BackEndService } from '../../../services/backend';
-
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',

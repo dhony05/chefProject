@@ -10,7 +10,6 @@ export class ProfileComponent implements OnInit {
 chefs;
 popUpOpen = false;
 
-
   constructor(private cache: BackEndService) {
       this.cache.requestChefs(); // use to get fresh list on construstion
   }
