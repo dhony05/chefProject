@@ -60,7 +60,7 @@ public class Category {
 	}
 	
 	public CategoryDto toDto() {
-		return new CategoryDto(id, name, chef.toDto());
+		return new CategoryDto(id, name);
 	}
 
 	

@@ -19,7 +19,7 @@ VALUES
 ( 'chris', 'king', '2239 Chatterton Ave', '', 23, '', 100, '7187727273', 'da.chef.you.deserve@goodeats.com'),
 ( 'chris', 'king', '2239 Chatterton Ave', '', 23, '', 100, '7187727273', 'da.chef.you.deserve@goodeats.com');
 
-INSERT INTO category( name )
+INSERT INTO category( name, chef_id )
 VALUES 
 ( 'Italian', 1 ),
 ( 'Chinese', 2 ),
