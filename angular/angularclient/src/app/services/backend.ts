@@ -13,7 +13,6 @@ interface BackEndMenu {
   getChefs(); // get all chefs cached
   getChef(id); // get particular chef
   getBlankChef(id: number, firstName: string, lastName: string, address: string,
-
     pictureUrl: string, age: number, description: string, price: number,
     phone_number: number, email: string, categories: string[]);
   // ^^^ container for change in the format to be submitted
@@ -80,6 +79,7 @@ export class BackEndService implements BackEndMenu {
     this.http.get<ChefResponse[]>(this.baseUrl + this.chefExt)
     .subscribe( result => {
       // this.chefsPresent = true;
+
       this.chefs = result;
     });
   }
@@ -120,7 +120,6 @@ export class BackEndService implements BackEndMenu {
     // get particular chef
     return this.chefs.filter(chef => chef.id == id);
   }
-
   getBlankChef(id: number,
   firstName: string,
   lastName: string,
@@ -236,7 +235,6 @@ export class BackEndService implements BackEndMenu {
   ) {
     // container for change in the format to be submitted
     return new ConcernRequest(id, email, name, description);
-
   }
 
 
@@ -244,7 +242,6 @@ export class BackEndService implements BackEndMenu {
 
 export class ChefRequest {
   // formatted data to send to database
-
   id: number;
   firstName: string;
   lastName: string;
@@ -269,7 +266,6 @@ export class ChefRequest {
     email: string,
     categories: string[]
     ) {
-
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -331,7 +327,6 @@ export interface UserResponse {
   address: string;
   email: string;
   password: string;
-  pictureUrl: string;
 }
 export class ConcernRequest {
   id: number;
