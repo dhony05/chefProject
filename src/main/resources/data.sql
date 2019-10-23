@@ -1,4 +1,3 @@
-USE restapi;
 INSERT INTO user( first_name, last_name, address, email, password, picture_url )
 VALUES
 ( 'sai', 'allala', '410 S Randolphville Lane', 'sai.allala@hotmail.com', '', ''),
