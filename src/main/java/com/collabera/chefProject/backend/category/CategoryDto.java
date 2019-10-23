@@ -5,18 +5,15 @@ import com.collabera.chefProject.backend.chef.ChefDto;
 
 public class CategoryDto {
 	private long id;
-	private String name;
-	private ChefDto chef;
-	
+	private String name;	
 	
 	public CategoryDto() {}
 
 
-	public CategoryDto(long id, String name, ChefDto chef) {
+	public CategoryDto(long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.chef = chef;
 	}
 
 
@@ -39,19 +36,4 @@ public class CategoryDto {
 		this.name = name;
 	}
 
-
-	public ChefDto getChef() {
-		return chef;
-	}
-
-
-	public void setChef(ChefDto chef) {
-		this.chef = chef;
-	}
-	
-	public Category toEntity() {
-		return new Category(id, name, chef.toEntity()); 
-	}
-
-	
 }

@@ -42,7 +42,7 @@ public class Chef {
 	}
 
 	public Chef(long id, String firstName, String lastName, String address, String pictureUrl, int age, String description,
-			int price, String phone_number, String email, Set<Category> categories) {
+			int price, String phone_number, String email) {
 		super();
 		this.id = id;
 		this.firstName = firstName;

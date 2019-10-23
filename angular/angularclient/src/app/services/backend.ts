@@ -174,10 +174,11 @@ export class BackEndService implements BackEndMenu {
   lastName: string,
   address: string,
   email: string,
-  password: string
+  password: string,
+  pictureUrl: string
   ) {
     // container for change in the format to be submitted
-    return new UserRequest(id, firstName, lastName, address, email, password);
+    return new UserRequest(id, firstName, lastName, address, email, password, pictureUrl);
   }
 
 
@@ -309,7 +310,7 @@ export class UserRequest {
     address: string,
     email: string,
     password: string,
-    pictureUurl: string) {
+    pictureUrl: string) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;

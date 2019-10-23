@@ -9,18 +9,23 @@ import { ContactsComponent} from './components/sai/contacts/contacts.component';
 import { ProfileComponent} from './components/sai/profile/profile.component';
 import { HelpComponent} from './components/sai/help/help.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PopUpComponent } from './components/sai/pop-up/pop-up.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     StartComponent,
     ProfileComponent,
     HelpComponent,
-    ContactsComponent
+    ContactsComponent,
+    PopUpComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [StartComponent]
