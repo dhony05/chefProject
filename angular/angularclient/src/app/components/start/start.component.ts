@@ -12,4 +12,7 @@ export class StartComponent {
     this.cache.requestUser(1);
     this.cache.requestConcerns();
   }
+  test(){
+      console.log(this.cache.getChefs());
+  }
 }

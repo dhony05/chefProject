@@ -1,4 +1,4 @@
-**To Donelys: **
+***To Donelys: ***
 ***Feel free to add your work in this directory***
 This project currently has an example of how the project will consume the REST API. It is a service I will refer to as `cache`.
 
