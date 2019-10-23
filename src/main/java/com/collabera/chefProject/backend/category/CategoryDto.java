@@ -1,11 +1,12 @@
 package com.collabera.chefProject.backend.category;
 
-import com.collabera.chefProject.backend.chef.Chef;
-import com.collabera.chefProject.backend.chef.ChefDto;
-
 public class CategoryDto {
 	private long id;
-	private String name;	
+
+	private String name;
+//	private ChefDto chef;
+	
+
 	
 	public CategoryDto() {}
 
@@ -14,6 +15,8 @@ public class CategoryDto {
 		super();
 		this.id = id;
 		this.name = name;
+
+//		this.chef = chef;
 	}
 
 
@@ -35,5 +38,11 @@ public class CategoryDto {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
+	
+//	public Category toEntity() {
+//		return new Category(id, name); 
+//	}
 
 }
