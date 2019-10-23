@@ -9,5 +9,7 @@ import { BackEndService } from '../../services/backend';
 export class StartComponent {
   constructor(private cache: BackEndService) {
     this.cache.requestChefs(); // use to get fresh list on construstion
+    this.cache.requestUser(1);
+    this.cache.requestConcerns();
   }
 }
