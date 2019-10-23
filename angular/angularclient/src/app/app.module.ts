@@ -14,8 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DisplayOneComponent } from './components/don/dcomponents/display-one/display-one.component';
 import { SidebarComponent } from './components/don/dcomponents/sidebar/sidebar.component';
 import { DisplayChefsComponent } from './components/don/dcomponents/display-chefs/display-chefs.component';
-
-
+import { HomeComponent } from './components/abe/home/home.component';
+import { LoginComponent } from './components/abe/login/login.component';
+import { UserRegistrationComponent } from './components/abe/user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,11 @@ import { DisplayChefsComponent } from './components/don/dcomponents/display-chef
     HelpComponent,
     ContactsComponent,
     PopUpComponent,
+    HomeComponent,
+    LoginComponent,
+    UserRegistrationComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,

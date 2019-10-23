@@ -1,0 +1,38 @@
+<div class="img">
+  <div class="card text-center card-style" style="width: 38rem; height: 23rem;">
+    <div class="card-body ">
+      <h5 class="card-title text-center">Register</h5>
+
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" name="userFirstName" class="form-control text-center input-box-configuration" placeholder="First name" [(ngModel)]="userFirstName" />
+          </div>
+          <div class="col">
+            <input type="text" name="userLastName" class="form-control text-center input-box-configuration " placeholder="Last name" [(ngModel)]="userLastName" />
+          </div>
+        </div>
+
+        <br />
+
+        <input type="text" name="userEmail" class="form-control text-center inputres" placeholder="example@email.com" [(ngModel)]="userEmail" />
+
+        <br />
+
+        <input type="text" name="userPassword" class="form-control text-center inputres " placeholder="Password" [(ngModel)]="userPassword" />
+        <br />
+
+        <button type="button" class="btn btn-outline-warning submit-button" (click)="registerData()">
+          Register
+        </button>
+      </form>
+
+      <!--test-->
+      {{ userFirstName }}
+      {{ userLastName }}
+
+      {{ userEmail }}
+      {{ userPassword }}
+    </div>
+  </div>
+</div>

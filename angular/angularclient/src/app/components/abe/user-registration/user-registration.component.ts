@@ -12,14 +12,11 @@ export class UserRegistrationComponent implements OnInit {
   userEmail:string="";
   userPassword:string="";
 
-
-  
-
   constructor() { }
 
   registerData(){
     //***back end connection**//
-    //store user first name, last name, email, and password to database 
+    //store user first name, last name, email, and password to database
   }
 
 
