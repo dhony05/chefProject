@@ -4,9 +4,9 @@ import { DisplayChefsComponent } from './components/don/dcomponents/display-chef
 import { ProfileComponent} from './components/sai/profile/profile.component';
 import { HelpComponent} from './components/sai/help/help.component';
 import { ContactsComponent} from './components/sai/contacts/contacts.component';
+import { HomeComponent } from './components/abe/home/home.component';
 import { LoginComponent } from './components/abe/login/login.component';
 import { UserRegistrationComponent } from './components/abe/user-registration/user-registration.component';
-import { HomeComponent } from './components/abe/home/home.component';
 
 const routes: Routes = [
     {path: 'profile', component:ProfileComponent},

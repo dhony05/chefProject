@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import {FormsModule} from '@angular/forms';
+
 // import { AppComponent } from './app.component';
 
 import { StartComponent } from './components/start/start.component';
@@ -21,7 +22,6 @@ import { UserRegistrationComponent } from './components/abe/user-registration/us
 @NgModule({
   declarations: [
     StartComponent,
-
     DisplayOneComponent,
     SidebarComponent,
     DisplayChefsComponent,
@@ -32,14 +32,15 @@ import { UserRegistrationComponent } from './components/abe/user-registration/us
     HomeComponent,
     LoginComponent,
     UserRegistrationComponent
+
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [StartComponent]
