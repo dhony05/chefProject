@@ -18,3 +18,12 @@ label{
 button{
     margin-top: 20px;
 }
+
+.name{
+    
+    font-family: Typewriter, serif;
+    font-size: 23px;
+    font-stretch: expanded;
+    font-variant: small-caps;
+
+}

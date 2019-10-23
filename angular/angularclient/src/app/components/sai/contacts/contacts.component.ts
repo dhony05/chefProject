@@ -16,7 +16,7 @@ export class ContactsComponent implements OnInit {
       }
 
     getData(){
-        this.chefs = this.cache.getChef(1);
+        this.chefs = this.cache.getChefs();
         return this.chefs;
     }
     }
