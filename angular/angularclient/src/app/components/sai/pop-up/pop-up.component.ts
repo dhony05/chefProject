@@ -1,0 +1,22 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { openCloseAnimation } from './animations';
+
+@Component({
+  selector: 'app-pop-up',
+  templateUrl: './pop-up.component.html',
+  styleUrls: ['./pop-up.component.scss'],
+  animations: [
+    openCloseAnimation
+    // openCloseShadeAnimation,
+  ]
+})
+export class PopUpComponent implements OnInit {
+    @Input() isOpen = false;
+
+  constructor() { }
+
+  ngOnInit() {
+      
+  }
+
+}
