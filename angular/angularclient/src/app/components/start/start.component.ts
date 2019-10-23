@@ -10,4 +10,7 @@ export class StartComponent {
   constructor(private cache: BackEndService) {
     this.cache.requestChefs(); // use to get fresh list on construstion
   }
+  test(){
+      console.log(this.cache.getChefs());
+  }
 }

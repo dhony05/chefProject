@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.collabera.chefProject.backend.chef.ChefController;
 import com.collabera.chefProject.backend.chef.ChefDto;
+import com.collabera.chefProject.backend.concern.ConcernController;
+import com.collabera.chefProject.backend.concern.ConcernDto;
 import com.collabera.chefProject.backend.user.UserController;
 import com.collabera.chefProject.backend.user.UserDto;
 
@@ -30,6 +32,8 @@ public class MainRestController {
 	private ChefController chefController;
 	@Autowired
 	private UserController userController;
+	@Autowired
+	private ConcernController concernController;
 	
 	@GetMapping("/chefs")
 	public ResponseEntity<List<ChefDto>> findAllChefs() {
@@ -77,8 +81,33 @@ public class MainRestController {
 	}
 	
 	@DeleteMapping("/users/delete/{id}")
-	public ResponseEntity<Void> delete(@PathVariable String id) {
+	public ResponseEntity<Void> deleteUser(@PathVariable String id) {
 		return userController.delete(id);
 	}
 	
+	
+	@GetMapping("/concerns")
+	public ResponseEntity<List<ConcernDto>> findAllConcerns() {
+		return concernController.findAll();
+	}
+
+	@GetMapping("/concerns/{id}")
+	public ResponseEntity<ConcernDto> findConcern(@PathVariable String id) {
+		return concernController.find(id);
+	}
+
+	@PostMapping("/concerns")
+	public ResponseEntity<ConcernDto> createConcern(@RequestBody @Valid ConcernDto new_concern) throws URISyntaxException {
+		return concernController.create(new_concern);
+	}
+
+	@PutMapping("/concerns")
+	public ResponseEntity<ConcernDto> updateConcern(@RequestBody @Valid ConcernDto updated_concern) {
+		return concernController.update(updated_concern);
+	}
+
+	@DeleteMapping("/concerns/delete/{id}")
+	public ResponseEntity<Void> deleteConcern(@PathVariable String id) {
+		return concernController.delete(id);
+	}
 }
