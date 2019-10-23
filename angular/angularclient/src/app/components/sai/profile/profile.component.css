@@ -1,0 +1,28 @@
+.center {
+text-align: center;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.pic{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+label{
+    font-size: 24px;
+}
+
+button{
+    margin-top: 20px;
+}
+
+.name{
+
+    font-family: Typewriter, serif;
+    font-size: 23px;
+    font-stretch: expanded;
+    font-variant: small-caps;
+}

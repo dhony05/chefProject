@@ -1,0 +1,47 @@
+<div class="container contacts-component">
+  <div *ngFor=" let chef of getData()">
+    <div class="row outline">
+      <div class="col-sm-3">
+        <img src="https://img1.mashed.com/img/gallery/easy-dishes-that-make-you-seem-like-a-professional-chef/intro.jpg" height=250px width=250px />
+      </div>
+      <div class="col-sm-6">
+        <div class="contact">
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <div>
+                  <th>Name:</th>
+                  <td>{{chef.firstName}} {{chef.lastName}} </td>
+                </div>
+              </tr>
+              <tr>
+                <div>
+                  <th>Email:</th>
+                  <td> {{chef.firstName}} {{chef.lastName}}</td>
+                </div>
+              </tr>
+              <tr>
+                <div>
+                  <th>Phone:</th>
+                  <td> {{chef.firstName}} {{chef.lastName}}</td>
+                </div>
+              </tr>
+              <tr>
+                <div>
+                  <th>Experience:</th>
+                  <td> {{chef.firstName}} {{chef.lastName}}</td>
+                </div>
+              </tr>
+              <tr>
+                <div>
+                  <th>Last Contacted:</th>
+                  <td> {{chef.firstName}} {{chef.lastName}}</td>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

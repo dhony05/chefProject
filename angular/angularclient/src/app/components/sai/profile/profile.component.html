@@ -1,0 +1,55 @@
+<div class="container center">
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- why we need ngIf -->
+      <div class="container jumbotron" style="background-color: ">
+        <div class="row">
+          <div class="col pic">
+            <img (click)="openPopUp()" id="" src="https://img1.mashed.com/img/gallery/easy-dishes-that-make-you-seem-like-a-professional-chef/intro.jpg" height=250px width=250px /> <br>
+            <div *ngFor="let chef of getData()" class="name">
+              {{chef.firstName}} {{chef.lastName}} <br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12" *ngFor="let chef of getData()">
+
+      <h1>Welcome {{chef.firstName}}!</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <label for="name"> Name </label><br>
+            <input class="form-control" type="text" value={{chef.firstName}} readonly>
+            <label for="name"> Address </label><br>
+            <input class="form-control" type="text" value={{chef.address}} readonly>
+            <label for="name"> Phone </label><br>
+            <input class="form-control" type="text" Value="Optional" readonly>
+            <label for="name"> Email </label><br>
+            <input class="form-control" type="text" value="Optional" readonly>
+            <button type="button" name="button" class="btn btn-warning">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-pop-up class="my-prompt" [isOpen]="popUpOpen">
+  <div class="box">
+    <header>
+      <span class="title"> </span>
+    </header>
+    <main>
+        <img (click)="cancelOption()" src="https://img1.mashed.com/img/gallery/easy-dishes-that-make-you-seem-like-a-professional-chef/intro.jpg" height=700px width=700px /> <br>
+        <div class="name center"*ngFor="let chef of getData()">
+          {{chef.firstName}} {{chef.lastName}} <br>
+        </div>
+    </main>
+  </div>
+</app-pop-up>
