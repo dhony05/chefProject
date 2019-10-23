@@ -1,0 +1,45 @@
+.nav-font{
+    font-size: 20px;
+}
+
+.nav-link{
+    font-size: 23px;
+    font-variant: small-caps;
+    font-stretch: expanded;
+    font-family: Typewriter, serif;
+}
+.nav-link:hover{
+    font-size: 27px;
+    font-variant: small-caps;
+    font-stretch: expanded;
+    font-family: Typewriter, serif;
+}
+
+.nav-title{
+    font-size: 36px;
+    font-variant: small-caps;
+    font-stretch: ultra-expanded;
+    font-family: Typewriter, serif;
+
+}
+
+.title{
+    padding-top: 40px;
+    color:red;
+    font-size: 50px;
+    text-align: center;
+    font-variant: small-caps;
+    font-stretch: expanded;
+    font-family: Typewriter, serif
+}
+
+.footer{
+text-align: center;
+margin-top: 50px;
+padding-top: 25px;
+background-color: black;
+color: white;
+border-style: groove;
+border-color: darkgreen;
+font-family: Jazz LET;
+}
