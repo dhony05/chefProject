@@ -26,7 +26,7 @@ interface BackEndMenu {
   // Access Cached Data For Users
   // getUsers(); // get all users cached
   getUser(); // get particular user
-  getBlankUser(id: number, firstName: string, lastName: string, address: string,
+  getBlankUser(id: number, firstName: string, lastName: string, 
     address: string, email: string, password: string, pictureUrl: string);
   // ^^^ container for change in the format to be submitted
 

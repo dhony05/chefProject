@@ -13,15 +13,17 @@ export class UserRegistrationComponent implements OnInit {
   userEmail:string="";
   userPassword:string="";
 
+
   constructor(private cache: BackEndService) {
-    this.cache.requestNewUser(this.cache.getBlankUser(1,this.userFirstName,this.userLastName,
-      this.userEmail,this.userPassword," "));
+
    }
 
   registerData(){
-    //***back end connection**//
+    console.log(this.cache.getBlankUser(1,this.userFirstName,this.userLastName,
+      "fkgfjhj",this.userEmail,this.userPassword,""));
     
-    //store user first name, last name, email, and password to database
+    this.cache.requestNewUser(this.cache.getBlankUser(1,this.userFirstName,this.userLastName,
+      "fkgfjhj",this.userEmail,this.userPassword,""));
   }
 
   ngOnInit() {
