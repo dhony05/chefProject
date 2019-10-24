@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   validateData(){
-    //check if the information is right with the back end if so send user to store page 
+    //check if the information is right with the back end if so send user to store page
   }
 
   ngOnInit() {
