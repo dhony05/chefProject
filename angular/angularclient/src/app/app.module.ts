@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule, MatDialog} from '@angular/material';
 
 // import { AppComponent } from './app.component';
 
@@ -10,7 +12,6 @@ import { ContactsComponent} from './components/sai/contacts/contacts.component';
 import { ProfileComponent} from './components/sai/profile/profile.component';
 import { HelpComponent} from './components/sai/help/help.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PopUpComponent } from './components/sai/pop-up/pop-up.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DisplayOneComponent } from './components/don/dcomponents/display-one/display-one.component';
 import { SidebarComponent } from './components/don/dcomponents/sidebar/sidebar.component';
@@ -28,11 +29,9 @@ import { UserRegistrationComponent } from './components/abe/user-registration/us
     ProfileComponent,
     HelpComponent,
     ContactsComponent,
-    PopUpComponent,
     HomeComponent,
     LoginComponent,
     UserRegistrationComponent
-
   ],
 
   imports: [
@@ -40,9 +39,16 @@ import { UserRegistrationComponent } from './components/abe/user-registration/us
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    MatDialogModule
   ],
-  providers: [],
+  exports: [
+    MatDialogModule
+  ],
+  providers: [
+      MatDialog
+  ],
   bootstrap: [StartComponent]
 })
 export class AppModule { }

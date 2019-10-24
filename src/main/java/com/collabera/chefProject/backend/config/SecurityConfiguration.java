@@ -74,7 +74,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.and()
 		.authorizeRequests()
 		.antMatchers("/js/**", "/css/**", "/img/**", "/webjars/**", "/api/**").permitAll() // allow all webjars (bootstrap and jquery), css, images and javascript files without security
-		.antMatchers("/api/admin/**").hasRole("ADMIN")
+//		.antMatchers("/api/admin/**").hasRole("ADMIN")
 		.antMatchers("/**").hasRole("USER")// authorize requests only if they are successfully authenticated
 		.and().formLogin() // allow form login
 		.successHandler(mySuccessHandler) // if login is successful, call the authenticationSuccessHandler method
