@@ -79,7 +79,7 @@ export class BackEndService implements BackEndMenu {
     this.http.get<ChefResponse[]>(this.baseUrl + this.chefExt)
     .subscribe( result => {
       // this.chefsPresent = true;
-
+        
       this.chefs = result;
     });
   }
@@ -180,8 +180,6 @@ export class BackEndService implements BackEndMenu {
     // container for change in the format to be submitted
     return new UserRequest(id, firstName, lastName, address, email, password, pictureUrl);
   }
-
-
 
   requestConcerns() {
     // retrieves all concerns in database
