@@ -27,6 +27,7 @@ interface BackEndMenu {
   // getUsers(); // get all users cached
   getUser(); // get particular user
 
+  
   getBlankUser(id: number, firstName: string, lastName: string, address: string,
     email: string, password: string, pictureUrl: string);
 
