@@ -27,7 +27,7 @@ interface BackEndMenu {
   // getUsers(); // get all users cached
   getUser(); // get particular user
   getBlankUser(id: number, firstName: string, lastName: string, address: string,
-    address: string, email: string, password: string, pictureUrl: string);
+    email: string, password: string, pictureUrl: string);
   // ^^^ container for change in the format to be submitted
 
   // Update Cached Data for Concerns
@@ -118,6 +118,17 @@ export class BackEndService implements BackEndMenu {
     // get all chefs cached
     return this.chefs;
   }
+
+
+  getChefbyCategory(search_category){
+   // console.log(this.chefs[0].categories[0]);
+    
+    return this.chefs.filter(chef => chef.categories.map(category => category.name).includes(search_category));
+    
+    
+  }
+  
+
   getChef(id) {
     // get particular chef
     return this.chefs.filter(chef => chef.id == id);

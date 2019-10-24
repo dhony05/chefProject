@@ -1,10 +1,12 @@
 <div class="border-secondary">
-    <div class="card  mb-4 border border-dark list-group-item-action " style="width: 19rem">
+    <div class="card  mb-4 border border-dark list-group-item-action " style="width: 19rem"
+    *ngIf="!popUpOpen" >
         <img src={{chef.pictureUrl}} alt="" class="card-img-top">
         <div class="card-body  container">
             <div class="row">
             <h5 class="col-6">{{chef.firstName}}</h5>
             <h5 class="col-6">{{chef.age}}</h5>
+            <h5 class="col-6">{{chef.categories}}</h5>
         </div>
             <h5>{{chef.description}}</h5>
 
@@ -22,6 +24,9 @@
     <main>
         <div class="border-secondary">
             <div class="card  mb-4 border border-dark list-group-item-action " style=" height: 50rem; width: 50rem">
+                <div class="justify-content-end">
+                    <button class="btn btn-danger " (click) = "cancelOption() ">Close</button>
+                </div>
                 <img src={{chef.pictureUrl}} alt="" class="card-img-top">
                 <div class="card-body  container">
                     <div class="row">

@@ -7,6 +7,8 @@
     
     
     <div class="row">
+ 
+    <button (click)=" filteringChef()"></button>
         <div class="col-12 justify-content-center " *ngFor="let category of categories">
             <label class= "col-sm-6 form-check-label " for="checkBox"> {{category}}</label>
             <input class= "col-sm-6 form-check-input" type="checkBox">
