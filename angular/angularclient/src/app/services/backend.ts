@@ -26,8 +26,9 @@ interface BackEndMenu {
   // Access Cached Data For Users
   // getUsers(); // get all users cached
   getUser(); // get particular user
-  getBlankUser(id: number, firstName: string, lastName: string, 
-    address: string, email: string, password: string, pictureUrl: string);
+  
+  getBlankUser(id: number, firstName: string, lastName: string, address: string,
+    email: string, password: string, pictureUrl: string);
   // ^^^ container for change in the format to be submitted
 
   // Update Cached Data for Concerns
@@ -66,6 +67,7 @@ export class BackEndService implements BackEndMenu {
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
+        // ,'Authorization': 'my-auth-token'
       })
     };
     this.chefs = [];
@@ -154,7 +156,8 @@ export class BackEndService implements BackEndMenu {
                                 user,
                                 this.httpOptions)
     .subscribe( result => { this.requestUser(user.id) },
-                err => {this.userError = err; });
+                err => {this.userError = err;
+                console.log(err);});
   }
   requestUserChange(user: UserRequest) {
     // send put to db
