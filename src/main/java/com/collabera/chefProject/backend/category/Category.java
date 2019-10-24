@@ -63,5 +63,4 @@ public class Category {
 		return new CategoryDto(id, name);
 	}
 
-	
 }

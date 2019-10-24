@@ -23,8 +23,6 @@ public class ChefDto {
 	public ChefDto() {}
 	
 	public Chef toEntity() {
-		Set<Category> ret = new HashSet<>();
-//		categories.forEach(r -> ret.add(r.toEntity()));
 		return new Chef(id, firstName, lastName, address, pictureUrl, age,
 				description, price, phone_number, email);
 	}

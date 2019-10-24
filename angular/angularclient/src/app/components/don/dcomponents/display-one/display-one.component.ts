@@ -9,8 +9,18 @@ import { Chef } from '../../Models/chef';
 })
 export class DisplayOneComponent implements OnInit {
 
+ popUpOpen = false;
+
  @Input() chef:Chef;
+
   ngOnInit() {}
 
+  openPopUp() {
+    this.popUpOpen = true;
+  }
+
+  cancelOption() {
+    this.popUpOpen = false;
+  }
 
 }
