@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackEndService } from 'src/app/services/backend';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,11 @@ export class SidebarComponent implements OnInit {
   priceRate:string[]
   price:number;
  
-   constructor() {
+   constructor(private getter:BackEndService) {
+   
+    this.getter.requestChefs();
+    
+
      this.categories = [
        "American",
        "Italian",
@@ -25,10 +30,21 @@ export class SidebarComponent implements OnInit {
         "$$+"
  
       ]
+
+      
  
     }
 
   ngOnInit() {
+    //this.getter.getChefbyCategory(this.categories)
+  }
+
+  filteringChef(){
+    //console.log(this.getter.getChefs());
+    
+    console.log(this.getter.getChefbyCategory(this.categories[1]));
+    return this.getter.getChefbyCategory(this.categories[1]);
+   
   }
 
 }

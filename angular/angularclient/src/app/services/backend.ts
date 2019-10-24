@@ -123,6 +123,17 @@ export class BackEndService implements BackEndMenu {
     // get all chefs cached
     return this.chefs;
   }
+
+
+  getChefbyCategory(search_category){
+   // console.log(this.chefs[0].categories[0]);
+    
+    return this.chefs.filter(chef => chef.categories.map(category => category.name).includes(search_category));
+    
+    
+  }
+  
+
   getChef(id) {
     // get particular chef
     return this.chefs.filter(chef => chef.id == id);
