@@ -1,49 +1,84 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-11">
+      <!-- NavBar for the Whole Application -->
+      <nav class="navbar navbar-expand-lg navbar-light nav-bag-color nav-font">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-<div style = "background: ;">
-  <!-- NavBar for the Whole Application -->
-  <nav class="navbar navbar-expand-lg navbar-light nav-bag-color nav-font">
-    <a class="navbar-brand nav-title" routerLink = "/" >Chef Up</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <div class="collapse navbar-collapse center" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item lis">
+              <a class="nav-link" routerLink="/profile">Profile <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item lis">
+              <a class="nav-link" routerLink="/look">Look for Chefs <span class="sr-only">(current)</span></a>
+            </li>
+            <li class=" nav-item lis">
+              <a class="navbar-brand nav-title" routerLink="/">Chef Up</a>
+            </li>
+            <li class="nav-item lis">
+              <a class="nav-link" routerLink="/contacts">Contacts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item lis">
+              <a class="nav-link" routerLink="/help">Help <span class="sr-only">(current)</span></a>
+            </li>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <div> <li class="nav-item">
-          <a class="nav-link" routerLink = "/home">Home <span class="sr-only">(current)</span></a>
-        </li> </div>
-        <li class="nav-item">
-          <a class="nav-link" routerLink = "/look">Look for Chefs <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink = "/profile">Profile <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink = "/contacts">Contacts <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink = "/help">Help <span class="sr-only">(current)</span></a>
-        </li>
-        <li class = "sign-button">
-            <button type="button" class="btn btn-outline-warning  account-button " routerLink="/user-registration">Sign Up</button>
-        </li>
-        <li class = "sign-button">
-            <button type="button" class="btn btn-outline-secondary account-button " routerLink="/user-login" >Sign In</button>
-        </li>
-      </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
+          </ul>
+          <!-- <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form> -->
+        </div>
+        <div class="col-sm-1 ">
+          <ul class="navbar-nav mr-auto side-button">
+            <li>
+              <button type="button" class="btn btn-outline-warning  account-button " [disabled]="popUpOpenRegister" (click)="openPopUpRegister()">Sign Up</button>
+            </li>
+            <li>
+              <button type="button" class="btn btn-outline-secondary account-button" [disabled]="popUpOpenLogin" (click)="openPopUpLogin()">Sign In</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
-</nav>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
 
 <div class="container-flex footer">
-    <div class="row">
-        <div class="col">
-            <div>© 2019 DaSquad | TeamTitan LLC, All rights reserved.</div>
-            <div> 110 Allen rd | Basking Ridge | New Jersey | 08854 | USA </div>
-        </div>
+  <div class="row">
+    <div class="col">
+      <div>© 2019 DaSquad | TeamTitan LLC, All rights reserved.</div>
+      <div> 110 Allen rd | Basking Ridge | New Jersey | 08854 | USA </div>
     </div>
+  </div>
+</div>
+
+<app-pop-up class="my-prompt" [isOpen]="popUpOpenRegister">
+  <div class="box">
+    <header>
+      <span class="title"> Register</span>
+    </header>
+    <main>
+      <app-user-registration>
+
+      </app-user-registration>
+    </main>
+  </div>
+</app-pop-up>
+
+<app-pop-up class="my-prompt" [isOpen]="popUpOpenLogin">
+  <div class="box">
+    <header>
+      <span class="title"></span>
+    </header>
+    <main>
+      <app-login> </app-login>
+    </main>
+    <footer>
+    </footer>
+  </div>
+</app-pop-up>
