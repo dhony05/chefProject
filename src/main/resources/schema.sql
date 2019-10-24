@@ -20,7 +20,7 @@ CREATE TABLE chef
    first_name varchar (25) not null,
    last_name varchar (25),
    address varchar (50) not null,
-   picture_url varchar (60) not null,
+   picture_url varchar (200) not null,
    age int,
    description varchar (100),
    price int,
