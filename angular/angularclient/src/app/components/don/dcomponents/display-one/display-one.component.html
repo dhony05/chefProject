@@ -13,26 +13,3 @@
         </div>
     </div>
 </div>
-
-<app-pop-up class="my-prompt" [isOpen]="popUpOpen">
-  <div class="box">
-    <header>
-      <span class="title"> </span>
-    </header>
-    <main>
-        <div class="border-secondary">
-            <div class="card  mb-4 border border-dark list-group-item-action " style=" height: 25rem; width: 25rem">
-                <span class="close" (click)="cancelOption()">x</span>
-                <img src={{chef.pictureUrl}} alt="" class="card-img-top">
-                <div class="card-body  container">
-                    <div class="row">
-                    <h5 class="col-6">{{chef.firstName}}</h5>
-                    <h5 class="col-6">{{chef.age}}</h5>
-                </div>
-                    <h5>{{chef.description}}</h5>
-                </div>
-            </div>
-        </div>
-    </main>
-  </div>
-</app-pop-up>

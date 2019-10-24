@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-11">
       <!-- NavBar for the Whole Application -->
-      <nav class="navbar navbar-expand-lg navbar-light nav-bag-color nav-font">
+      <nav class="navbar navbar-expand-lg navbar-light nav-bag-color nav-font ">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,10 +34,10 @@
         <div class="col-sm-1 ">
           <ul class="navbar-nav mr-auto side-button">
             <li>
-              <button type="button" class="btn btn-outline-warning  account-button " [disabled]="popUpOpenRegister" (click)="openPopUpRegister()">Sign Up</button>
+              <button type="button" class="btn btn-outline-warning  account-button" (click) = "openRegister()">Sign Up</button>
             </li>
             <li>
-              <button type="button" class="btn btn-outline-secondary account-button" [disabled]="popUpOpenLogin" (click)="openPopUpLogin()">Sign In</button>
+              <button type="button" class="btn btn-outline-secondary account-button" (click) = "openLogin()" >Sign In</button>
             </li>
           </ul>
         </div>
@@ -56,29 +56,3 @@
     </div>
   </div>
 </div>
-
-<app-pop-up class="my-prompt" [isOpen]="popUpOpenRegister">
-  <div class="box">
-    <header>
-      <span class="title"> Register</span>
-    </header>
-    <main>
-      <app-user-registration>
-
-      </app-user-registration>
-    </main>
-  </div>
-</app-pop-up>
-
-<app-pop-up class="my-prompt" [isOpen]="popUpOpenLogin">
-  <div class="box">
-    <header>
-      <span class="title"></span>
-    </header>
-    <main>
-      <app-login> </app-login>
-    </main>
-    <footer>
-    </footer>
-  </div>
-</app-pop-up>

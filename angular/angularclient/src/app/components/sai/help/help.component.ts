@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackEndService } from '../../../services/backend';
 
 @Component({
   selector: 'app-help',
@@ -7,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpComponent implements OnInit {
 
-  constructor() { }
+chefs;
+
+  constructor(private cache: BackEndService) {
+      this.cache.requestChefs(); // use to get fresh list on construstion
+  }
 
   ngOnInit() {
 
   }
 
+  sendData(){
+      // this.chefs = this.cache.requestNewConcern();
+
+  }
 }
