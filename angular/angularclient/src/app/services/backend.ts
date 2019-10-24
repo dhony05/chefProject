@@ -26,8 +26,11 @@ interface BackEndMenu {
   // Access Cached Data For Users
   // getUsers(); // get all users cached
   getUser(); // get particular user
+
+  
   getBlankUser(id: number, firstName: string, lastName: string, address: string,
     email: string, password: string, pictureUrl: string);
+
   // ^^^ container for change in the format to be submitted
 
   // Update Cached Data for Concerns
@@ -83,7 +86,7 @@ export class BackEndService implements BackEndMenu {
     this.http.get<ChefResponse[]>(this.baseUrl + this.chefExt)
     .subscribe( result => {
       // this.chefsPresent = true;
-
+        
       this.chefs = result;
     });
   }
@@ -192,8 +195,6 @@ export class BackEndService implements BackEndMenu {
     // container for change in the format to be submitted
     return new UserRequest(id, firstName, lastName, address, email, password, pictureUrl);
   }
-
-
 
   requestConcerns() {
     // retrieves all concerns in database
