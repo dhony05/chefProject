@@ -25,9 +25,9 @@ interface BackEndMenu {
   requestUserRemove(id); // send delete to db
   // Access Cached Data For Users
   // getUsers(); // get all users cached
-  getUser(id); // get particular user
+  getUser(); // get particular user
   getBlankUser(id: number, firstName: string, lastName: string, address: string,
-    email: string, password: string, pictureUrl: string);
+    address: string, email: string, password: string, pictureUrl: string);
   // ^^^ container for change in the format to be submitted
 
   // Update Cached Data for Concerns
@@ -56,6 +56,7 @@ export class BackEndService implements BackEndMenu {
   // chefsPresent: boolean;
   chefs;
   user;
+  userError;
   concerns;
   constructor(private http: HttpClient) {
     this.baseUrl = "http://localhost:8080/api";
@@ -70,6 +71,7 @@ export class BackEndService implements BackEndMenu {
     this.chefs = [];
     this.requestChefs(); // init load?
     this.user = null; // needed?
+    this.userError = undefined; // needed?
     this.concerns = [];
   }
   requestChefs() {
@@ -151,7 +153,8 @@ export class BackEndService implements BackEndMenu {
     this.http.post<UserResponse>(this.baseUrl + this.userExt,
                                 user,
                                 this.httpOptions)
-    .subscribe( result => { this.requestUser(user.id) });
+    .subscribe( result => { this.requestUser(user.id) },
+                err => {this.userError = err; });
   }
   requestUserChange(user: UserRequest) {
     // send put to db
@@ -163,7 +166,7 @@ export class BackEndService implements BackEndMenu {
   requestUserRemove(id) {
     // send delete to db
     this.http.delete(this.baseUrl + this.userExt + "/" + id)
-    .subscribe( result => { this.requestUser(id) });
+    .subscribe( result => {});
   }
   getUser() {
     // get all users cached
@@ -326,6 +329,8 @@ export interface UserResponse {
   address: string;
   email: string;
   password: string;
+  pictureUrl: string;
+
 }
 export class ConcernRequest {
   id: number;
