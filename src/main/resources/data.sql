@@ -1,11 +1,6 @@
+USE restapi;
 INSERT INTO user( first_name, last_name, address, email, password, picture_url )
 VALUES
-( 'sai', 'allala', '410 S Randolphville Lane', 'sai.allala@hotmail.com', '', ''),
-( 'sai', 'allala', '410 S Randolphville Lane', 'sai.allala@hotmail.com', '', ''),
-( 'sai', 'allala', '410 S Randolphville Lane', 'sai.allala@hotmail.com', '', ''),
-( 'sai', 'allala', '410 S Randolphville Lane', 'sai.allala@hotmail.com', '', ''),
-( 'sai', 'allala', '410 S Randolphville Lane', 'sai.allala@hotmail.com', '', ''),
-( 'sai', 'allala', '410 S Randolphville Lane', 'sai.allala@hotmail.com', '', ''),
 ( 'sai', 'allala', '410 S Randolphville Lane', 'sai.allala@hotmail.com', '', '');
 
 INSERT INTO chef( first_name, last_name, address, picture_url, age, description, price, phone_number, email )

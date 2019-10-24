@@ -1,6 +1,6 @@
 <div class="border-secondary">
     <div class="card  mb-4 border border-dark list-group-item-action " style="width: 19rem"
-    *ngIf="!popUpOpen" >
+     >
         <img src={{chef.pictureUrl}} alt="" class="card-img-top">
         <div class="card-body  container">
             <div class="row">
@@ -10,33 +10,9 @@
         </div>
             <h5>{{chef.description}}</h5>
 
-            <button (click)="openPopUp()" class="btn btn-info">More info</button>
+<!--             <button (click)="openPopUp()" class="btn btn-info">More info</button> -->
             <!-- need add function -->
         </div>
     </div>
 </div>
 
-<app-pop-up class="my-prompt" [isOpen]="popUpOpen">
-  <div class="box">
-    <header>
-      <span class="title"> </span>
-    </header>
-    <main>
-        <div class="border-secondary">
-            <div class="card  mb-4 border border-dark list-group-item-action " style=" height: 50rem; width: 50rem">
-                <div class="justify-content-end">
-                    <button class="btn btn-danger " (click) = "cancelOption() ">Close</button>
-                </div>
-                <img src={{chef.pictureUrl}} alt="" class="card-img-top">
-                <div class="card-body  container">
-                    <div class="row">
-                    <h5 class="col-6">{{chef.firstName}}</h5>
-                    <h5 class="col-6">{{chef.age}}</h5>
-                </div>
-                    <h5>{{chef.description}}</h5>
-                </div>
-            </div>
-        </div>
-    </main>
-  </div>
-</app-pop-up>

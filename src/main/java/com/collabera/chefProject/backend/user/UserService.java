@@ -1,38 +1,25 @@
 package com.collabera.chefProject.backend.user;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 	@Autowired
 	private UserRepository repository;
+	@Autowired
+	private PasswordEncoder encoder;
 	
-	
-	@Transactional
-    public User registerNewUserAccount(UserDto accountDto) 
-      throws EmailExistsException {
-         
-        if (emailExists(accountDto.getEmail())) {   
-            throw new EmailExistsException(
-              "There is an account with that email address:"  + accountDto.getEmail());
-        }
-        User user = accountDto.toEntity();    
-//        user.setRoles(Arrays.asList("ROLE_USER"));
-        return repository.save(user);       
-    }
 	private boolean emailExists(String email) {
         return repository.findByEmail(email).isPresent();   
     }
-	
-	
 	
 	public List<UserDto> findAll() {
 		List<UserDto> list = new ArrayList<>();
@@ -44,15 +31,20 @@ public class UserService {
 		Optional<User> p = repository.findById(id);
 		return (p.isPresent()) ? p.get().toDto() : null; // add error 
 	}
-
-	public UserDto save(UserDto new_poke) {
-		return repository.save(new_poke.toEntity()).toDto();
+	@Transactional
+	public UserDto save(UserDto new_user) throws EmailExistsException {
+		if (emailExists(new_user.getEmail())) {   
+            throw new EmailExistsException(
+              "There is an account with that email address:"  + new_user.getEmail());
+        }
+		new_user.setPassword(encoder.encode(new_user.getPassword()));
+		return repository.save(new_user.toEntity()).toDto();
 	}
 
-	public UserDto update(UserDto poke_change) { // post
-		Optional<User> poke = repository.findById(poke_change.getId());
+	public UserDto update(UserDto user_change) throws EmailExistsException { // post
+		Optional<User> poke = repository.findById(user_change.getId());
 		if (poke.isPresent()) {
-			return save(poke_change); // whole swap
+			return save(user_change); // whole swap
 		}
 		throw new IllegalArgumentException();
 	}
@@ -60,12 +52,14 @@ public class UserService {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
-
-}
-class EmailExistsException extends Exception {
-	private static final long serialVersionUID = 1L;
-
-	public EmailExistsException(String message) {
-		super(message);
+	public void canLogin(UserDto user) throws Exception {
+		Optional<User> account = repository.findByEmail(user.getEmail());
+		if (!account.isPresent()) {
+			throw new Exception("Account Not Present");
+		}
+		if (!encoder.matches(user.getPassword(), account.get().getPassword())) {
+			throw new Exception("Mismatched Password");
+		}
 	}
+
 }

@@ -40,16 +40,3 @@
     </div>
   </div>
 </div>
-<app-pop-up class="my-prompt" [isOpen]="popUpOpen">
-  <div class="box">
-    <header>
-      <span class="title"> </span>
-    </header>
-    <main>
-        <img (click)="cancelOption()" src="https://img1.mashed.com/img/gallery/easy-dishes-that-make-you-seem-like-a-professional-chef/intro.jpg" height=700px width=700px /> <br>
-        <div class="name center"*ngFor="let chef of getData()">
-          {{chef.firstName}} {{chef.lastName}} <br>
-        </div>
-    </main>
-  </div>
-</app-pop-up>

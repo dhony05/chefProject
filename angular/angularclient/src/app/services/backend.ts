@@ -26,8 +26,11 @@ interface BackEndMenu {
   // Access Cached Data For Users
   // getUsers(); // get all users cached
   getUser(); // get particular user
+
+  
   getBlankUser(id: number, firstName: string, lastName: string, address: string,
     email: string, password: string, pictureUrl: string);
+
   // ^^^ container for change in the format to be submitted
 
   // Update Cached Data for Concerns
@@ -57,6 +60,7 @@ export class BackEndService implements BackEndMenu {
   chefs;
   user;
   userError;
+  userCanLogin = false;
   concerns;
   constructor(private http: HttpClient) {
     this.baseUrl = "http://localhost:8080/api";
@@ -66,6 +70,7 @@ export class BackEndService implements BackEndMenu {
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
+        // ,'Authorization': 'my-auth-token'
       })
     };
     this.chefs = [];
@@ -81,7 +86,7 @@ export class BackEndService implements BackEndMenu {
     this.http.get<ChefResponse[]>(this.baseUrl + this.chefExt)
     .subscribe( result => {
       // this.chefsPresent = true;
-
+        
       this.chefs = result;
     });
   }
@@ -165,7 +170,8 @@ export class BackEndService implements BackEndMenu {
                                 user,
                                 this.httpOptions)
     .subscribe( result => { this.requestUser(user.id) },
-                err => {this.userError = err; });
+                err => {this.userError = err;
+                console.log(err);});
   }
   requestUserChange(user: UserRequest) {
     // send put to db
@@ -178,6 +184,12 @@ export class BackEndService implements BackEndMenu {
     // send delete to db
     this.http.delete(this.baseUrl + this.userExt + "/" + id)
     .subscribe( result => {});
+  }
+  requestUserLogin(email: string, password: string) {
+    // UserRequest user = new UserRequest();
+    this.http.post(this.baseUrl + this.userExt + "/login", this.getBlankUser(-1, "_", "_", "_", email, password, "_"), this.httpOptions)
+    .subscribe( result => { this.userCanLogin = true; },
+                err => { this.userCanLogin = false; } );
   }
   getUser() {
     // get all users cached
@@ -194,8 +206,6 @@ export class BackEndService implements BackEndMenu {
     // container for change in the format to be submitted
     return new UserRequest(id, firstName, lastName, address, email, password, pictureUrl);
   }
-
-
 
   requestConcerns() {
     // retrieves all concerns in database

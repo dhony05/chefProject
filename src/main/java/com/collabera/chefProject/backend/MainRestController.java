@@ -21,6 +21,7 @@ import com.collabera.chefProject.backend.chef.ChefController;
 import com.collabera.chefProject.backend.chef.ChefDto;
 import com.collabera.chefProject.backend.concern.ConcernController;
 import com.collabera.chefProject.backend.concern.ConcernDto;
+import com.collabera.chefProject.backend.user.EmailExistsException;
 import com.collabera.chefProject.backend.user.UserController;
 import com.collabera.chefProject.backend.user.UserDto;
 
@@ -71,12 +72,17 @@ public class MainRestController {
 	}
 	
 	@PostMapping("/users")
-	public ResponseEntity<UserDto> createUser(@RequestBody @Valid UserDto new_user) throws URISyntaxException {
+	public ResponseEntity<UserDto> createUser(@RequestBody UserDto new_user) throws URISyntaxException, EmailExistsException {
 		return userController.create(new_user);
 	}
 	
+	@PostMapping("/users/login")
+	public ResponseEntity<Void> canUserLogin(@RequestBody UserDto new_user) throws Exception {
+		return userController.canLogin(new_user);
+	}
+	
 	@PutMapping("/users")
-	public ResponseEntity<UserDto> updateUser(@RequestBody @Valid UserDto updated_user) {
+	public ResponseEntity<UserDto> updateUser(@RequestBody UserDto updated_user) throws EmailExistsException {
 		return userController.update(updated_user);
 	}
 	

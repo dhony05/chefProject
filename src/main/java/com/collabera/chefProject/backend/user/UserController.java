@@ -20,19 +20,23 @@ public class UserController {
 	public ResponseEntity<List<UserDto>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}
-	public ResponseEntity<UserDto> find(@PathVariable String id) {
+	public ResponseEntity<UserDto> find(String id) {
 		return ResponseEntity.ok(service.find(Long.valueOf(id)));
 	}
-	public ResponseEntity<UserDto> create(@RequestBody @Valid UserDto new_move) throws URISyntaxException {
-		UserDto result = service.save(new_move);
-		return ResponseEntity.created(new URI("/api/chefs/" + result.getId())).body(result);
+	public ResponseEntity<UserDto> create(UserDto new_user) throws URISyntaxException, EmailExistsException {
+		UserDto result = service.save(new_user);
+		return ResponseEntity.created(new URI("/api/users/" + result.getId())).body(result);
 	}
-	public ResponseEntity<UserDto> update(@RequestBody @Valid UserDto updated_move) {
-		UserDto result = service.update(updated_move);
+	public ResponseEntity<UserDto> update(UserDto updated_user) throws EmailExistsException {
+		UserDto result = service.update(updated_user);
 		return ResponseEntity.ok().body(result);
 	}
-	public ResponseEntity<Void> delete(@PathVariable String id) {
+	public ResponseEntity<Void> delete(String id) {
 		service.delete(Long.valueOf(id));
+		return ResponseEntity.ok().build();
+	}
+	public ResponseEntity<Void> canLogin(UserDto user) throws Exception {
+		service.canLogin(user);
 		return ResponseEntity.ok().build();
 	}
 }
