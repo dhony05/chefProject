@@ -57,6 +57,7 @@ export class BackEndService implements BackEndMenu {
   chefs;
   user;
   userError;
+  userCanLogin = false;
   concerns;
   constructor(private http: HttpClient) {
     this.baseUrl = "http://localhost:8080/api";
@@ -169,6 +170,12 @@ export class BackEndService implements BackEndMenu {
     // send delete to db
     this.http.delete(this.baseUrl + this.userExt + "/" + id)
     .subscribe( result => {});
+  }
+  requestUserLogin(email: string, password: string) {
+    // UserRequest user = new UserRequest();
+    this.http.post(this.baseUrl + this.userExt + "/login", this.getBlankUser(-1, "_", "_", "_", email, password, "_"), this.httpOptions)
+    .subscribe( result => { this.userCanLogin = true; },
+                err => { this.userCanLogin = false; } );
   }
   getUser() {
     // get all users cached
