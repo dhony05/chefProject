@@ -71,12 +71,12 @@ public class MainRestController {
 	}
 	
 	@PostMapping("/users")
-	public ResponseEntity<UserDto> createUser(@RequestBody @Valid UserDto new_user) throws URISyntaxException {
+	public ResponseEntity<UserDto> createUser(@RequestBody UserDto new_user) throws URISyntaxException {
 		return userController.create(new_user);
 	}
 	
 	@PutMapping("/users")
-	public ResponseEntity<UserDto> updateUser(@RequestBody @Valid UserDto updated_user) {
+	public ResponseEntity<UserDto> updateUser(@RequestBody UserDto updated_user) {
 		return userController.update(updated_user);
 	}
 	
