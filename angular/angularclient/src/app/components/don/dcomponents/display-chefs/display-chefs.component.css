@@ -1,0 +1,16 @@
+.outline{
+    border-style: groove;
+    border-color: darkgreen;
+}
+
+img{
+    margin-top: 20px;
+}
+
+.contact{
+    font-size: 24px;
+}
+
+.contacts-component{
+    margin-top: 50px;
+}

@@ -47,6 +47,9 @@ color: white;
 border-style: groove;
 border-color: darkgreen;
 font-family: Jazz LET;
+position: relative;
+margin-top: 180px;
+clear: both;
 }
 
 .sign-button{
