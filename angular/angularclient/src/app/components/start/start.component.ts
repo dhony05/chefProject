@@ -1,32 +1,27 @@
 import { Component } from '@angular/core';
 import { BackEndService } from '../../services/backend';
-
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import {LoginComponent, } from "../abe/login/login.component";
+import {UserRegistrationComponent} from "../abe/user-registration/user-registration.component";
 @Component({
   selector: 'start-display',
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.css']
 })
 export class StartComponent {
-    popUpOpenLogin = false;
-    popUpOpenRegister = false;
-  constructor(private cache: BackEndService) {
+
+  constructor(private cache: BackEndService, private dialog: MatDialog) {
     this.cache.requestChefs(); // use to get fresh list on construstion
   }
+
   test(){
       console.log(this.cache.getChefs());
   }
-  openPopUpLogin() {
-    this.popUpOpenLogin = true;
-  }
 
-  cancelOptionLogin() {
-    this.popUpOpenLogin = false;
+  openLogin(){
+      this.dialog.open(LoginComponent);
   }
-  openPopUpRegister() {
-    this.popUpOpenRegister = true;
-  }
-
-  cancelOptionRegister() {
-    this.popUpOpenRegister = false;
+  openRegister(){
+      this.dialog.open(UserRegistrationComponent);
   }
 }
