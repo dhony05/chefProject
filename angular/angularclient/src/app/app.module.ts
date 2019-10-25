@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatDialogModule, MatDialog} from '@angular/material';
+import { MatDialogModule, MatDialog, MatCheckboxModule} from '@angular/material';
+
 
 // import { AppComponent } from './app.component';
 
@@ -41,7 +42,8 @@ import { UserRegistrationComponent } from './components/abe/user-registration/us
     BrowserAnimationsModule,
     FormsModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
   ],
   exports: [
     MatDialogModule
