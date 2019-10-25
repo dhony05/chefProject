@@ -10,7 +10,11 @@
 
     <div class="col-sm-9 justify-content-end">
 
+
+                    <app-display-one class="col-6" *ngFor="let chef of getData(); let i = index;" [chef]='chef'> </app-display-one>
+
       <div class="row ">
+
 
         <app-display-one class="col-6" *ngFor="let chef of getData()" [chef]='chef'>  </app-display-one>
         
