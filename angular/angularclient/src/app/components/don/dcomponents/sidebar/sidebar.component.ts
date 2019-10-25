@@ -12,8 +12,9 @@ import { Chef } from '../../Models/chef';
 export class SidebarComponent implements OnInit {
 
   @Output() cChecked: EventEmitter<any> = new EventEmitter();
-  selectedCatValue = [];
-  categorizedChef  = [];
+
+  selectedCatcategory = [];
+  @Output() categorizedChef  = [];
   categories: string[];
   priceRate: string[];
   price: number;
@@ -43,7 +44,6 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.getter.getChefbyCategory(this.categories[4]);
 
   }
 
@@ -54,28 +54,27 @@ export class SidebarComponent implements OnInit {
 
   
 
-  getCheckBoxData(event, value) {
+  getCheckBoxData(event, category) {
     if (event.checked) {
-      this.selectedCatValue.push(value);
-      console.log(this.filteringChef(value));
-      //console.log();
+      this.selectedCatcategory.push(category);
+      console.log(this.filteringChef(category));
       
       //Checking if there is not maching for category
-      if(!((this.filteringChef(value).length ===0)&&( [].length === 0))){ 
-        this.categorizedChef.push(this.filteringChef(value));
+      if(!((this.filteringChef(category).length ===0)&&( [].length === 0))){ 
+        this.categorizedChef.push(this.filteringChef(category));
       }else{
-        console.log("Sorry not there is not match for " + value);
+        console.log("Sorry not there is not match for " + category);
       }
       
       this.isCategorized = true;
 
     }
+    
     if (!event.checked) {
-      let index = this.selectedCatValue.indexOf(value);
-      
-
+      let index = this.selectedCatcategory.indexOf(category);
+    
       if (index > -1) {
-        this.selectedCatValue.splice(index, 1);
+        this.selectedCatcategory.splice(index, 1);
         this.categorizedChef.splice(index,1);
         
       } else if( index == 0){
@@ -83,13 +82,9 @@ export class SidebarComponent implements OnInit {
       }
 
     }
-    console.log(this.selectedCatValue);
+    console.log(this.selectedCatcategory);
     console.log(this.categorizedChef);
-    //console.log(this.categorizedChef.push(this.getter.getChefbyCategory(value)));
-    //this.categorizedChef.push(this.getter.getChefbyCategory(value));
-    
-    //this.selectedCatValue.pop();
-    //console.log(this.getter.getChefbyCategory(value));
+ 
   }
   
 

@@ -8,6 +8,7 @@ import { BackEndService } from 'src/app/services/backend';
 })
 export class DisplayChefsComponent implements OnInit {
 
+  checkBoxVal = [];
   constructor(private cache: BackEndService) { 
     this.cache.requestChefs();
   }
@@ -16,6 +17,11 @@ export class DisplayChefsComponent implements OnInit {
   }
 getData(){
   return this.cache.getChefs();
+}
+
+
+getCatValue(){
+
 }
 
 }
