@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackEndService } from 'src/app/services/backend';
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {DisplayOneComponent} from '../display-one/display-one.component';
 
 @Component({
   selector: 'app-display-chefs',
@@ -8,8 +10,10 @@ import { BackEndService } from 'src/app/services/backend';
 })
 export class DisplayChefsComponent implements OnInit {
 
+
   checkBoxVal = [];
-  constructor(private cache: BackEndService) { 
+  constructor(private cache: BackEndService, private dialog: MatDialog) {
+
     this.cache.requestChefs();
   }
 
@@ -22,6 +26,11 @@ getData(){
 
 getCatValue(){
 
+}
+
+
+openChef(){
+    this.dialog.open(DisplayOneComponent);
 }
 
 }
