@@ -12,8 +12,8 @@ export class StartComponent {
 
   constructor(private cache: BackEndService, private dialog: MatDialog) {
     this.cache.requestChefs(); // use to get fresh list on construstion
-    this.cache.requestNewUser(this.cache.getBlankUser(2,"c","K",
-   "fkgfjhj","cki.ng@riverdale.edu","testme",""));
+    // this.cache.requestNewUser(this.cache.getBlankUser(2,"c","K",
+   // "fkgfjhj","cki.ng@riverdale.edu","testme",""));
   }
 
   test(){
@@ -26,9 +26,13 @@ export class StartComponent {
   }
 
   openLogin(){
-      this.dialog.open(LoginComponent);
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = true;
+      this.dialog.open(LoginComponent,dialogConfig);
   }
   openRegister(){
-      this.dialog.open(UserRegistrationComponent);
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = true;
+      this.dialog.open(UserRegistrationComponent, dialogConfig);
   }
 }

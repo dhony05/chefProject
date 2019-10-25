@@ -10,9 +10,10 @@ import {MatDialog, MatDialogConfig} from "@angular/material";
 })
 export class ProfileComponent implements OnInit {
 chefs;
-
+concerns;
   constructor(private cache: BackEndService, private dialog: MatDialog) {
       this.cache.requestChefs(); // use to get fresh list on construstion
+      this.cache.requestConcerns();
   }
   ngOnInit() {
   }
@@ -22,4 +23,8 @@ getData(){
     return this.chefs;
 }
     // this.dialog.open();
+gotConcerns(){
+    this.concerns = this.cache.getConcerns();
+    return this.concerns;
+}
 }
